@@ -2,6 +2,26 @@ clc
 clear variables
 close all
 
+%DA AGGIUNGERE UNA VOLTA PROVATE TUTTE LE MATRICI E LASCIATO NELLA CARTELLA
+%MATRICI SOLO QUELLE CHE NONO VANNO IN OUT OF MEMORY
+
+% Ottieni la lista dei nomi dei file nella cartella 'Matrici'
+%folder = 'Matrici';
+%files = dir(fullfile(folder, '*.mat'));
+% Loop per caricare e analizzare le matrici una a una
+%array_time = zeros(1, length(files));
+%array_error = zeros(1, length(files));
+%array_memoryPre = zeros(1, length(files));
+%array_memoryPost = zeros(1, length(files));
+%for i = 1:length(files)
+    % Carica la matrice dal file
+ %   tmp = load(fullfile(folder, files(i).name));
+  %  matrix = tmp.Problem.A;
+   % clear tmp;
+    % Altri comandi per analizzare la matrice
+%end
+
+
 
 
 % Array contenente i nomi dei file delle matrici da caricare
