@@ -95,11 +95,11 @@ bar(1:length(matrixNames), log10(array_time), barWidth, 'b');
 hold on;
 
 % Barre per l'errore
-bar(1:length(matrixNames) + barWidth, log10(array_error), barWidth, 'g'); 
+bar((1:length(matrixNames)) + barWidth, log10(array_error), barWidth, 'g'); 
 hold on;
 
 % Barre per la memoria post-risoluzione
-bar(1:length(matrixNames) + 2*barWidth, log10(array_memoryPost), barWidth, 'r'); 
+bar((1:length(matrixNames)) + 2*barWidth, log10(array_memoryPost), barWidth, 'r'); 
 hold off;
 
 % Assegnazione delle etichette sull'asse x
