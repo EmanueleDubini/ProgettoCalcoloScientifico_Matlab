@@ -1,6 +1,3 @@
-
-progetto Matlab necessario per lo svolgimento del progetto di calcolo scientifico. Utilizza le funzioni native di Matlab per risolvere il sistema associato ad una matrice sparsa, simmetrica e definita positiva utilizzando la decomposizione di Cholesky
-
 # Progetto Metodi del Calcolo Scientifico - Matlab
 
 >  Progetto MATLAB per la risoluzione con il metodo di Choleski di sistemi lineari con matrici sparse e definite positive di grandi dimensioni
