@@ -4,10 +4,6 @@ fprintf(strcat('\n-- Stato memoria pre risoluzione sistema:\n'))
 memory
 memory_used_preResolution = memory;
 
-
-
-
-
 %---risoluzione sistema lineare---
 % Dimensione della matrice
 n = size(matrix, 1);
@@ -39,7 +35,6 @@ fprintf('\n-- Tempo necessario per risolvere il sistema con Cholesky in secondi:
 fprintf(strcat('\n-- Stato memoria post risoluzione sistema:\n'))
 memory
 memory_used_postResolution = memory;
-
 
 % Da usare per misurare l'utilizzo di memoria del processo matlab usando
 % Linux, capire come usarlo e mettere una condizione per capire che sistema
