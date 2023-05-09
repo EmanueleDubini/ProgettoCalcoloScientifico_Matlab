@@ -34,7 +34,7 @@ array_error = zeros(1, length(matrixNames));
 array_memoryPre = zeros(1, length(matrixNames));
 array_memoryPost = zeros(1, length(matrixNames));
 array_memoryDiff = zeros(1, length(matrixNames));
-
+array_matrixSize = zeros(1, length(matrixNames));
 
 for i = 1:length(matrixNames)
 
@@ -44,14 +44,9 @@ for i = 1:length(matrixNames)
     matrix = tmp.Problem.A;
     clear tmp
     
-    
-    %stampa testo divisorio che mostra il nome della matrice da analizzare
-    str_div = '----------------------------';
-    str = strcat('\n', str_div, matrixNames{i}, str_div, '\n'); % Utilizzo della funzione strcat per concatenare le stringhe
-    fprintf(str);
-
-    strDimension = strcat('\n', '-- Dimensione matrice: ', '\n');
-    fprintf(strDimension)
+    % Stampa il nome del file e le dimensioni della matrice
+    fprintf('----------------------------\n');
+    fprintf('%s\n', matrixNames{i});
     whos matrix
 
     %funzione risoluzione sistema lineare
@@ -69,11 +64,12 @@ for i = 1:length(matrixNames)
     array_memoryPost(i) = memory_used_postResolution.MemUsedMATLAB;
     array_memoryDiff(i) = memory_used_postResolution.MemUsedMATLAB - memory_used_preResolution.MemUsedMATLAB;
     disp(memory_used_postResolution.MemUsedMATLAB);
+    array_matrixSize(i) = whos('matrix').bytes;
 end
 
 
 % Creazione delle tabelle con i dati
-data = table(matrixNames', array_memoryPre', array_memoryPost', array_memoryDiff', array_time', array_error', 'VariableNames', {'MatrixName', 'MemoryPre', 'MemoryPost', 'MemoryDif in Byte', 'Time', 'Error'});
+data = table(matrixNames' , array_matrixSize', array_memoryPre', array_memoryPost', array_memoryDiff', array_time', array_error', 'VariableNames', {'MatrixName', 'Size', 'MemoryPre', 'MemoryPost', 'MemoryDiff', 'Time', 'Error'});
 
 % Scrive la tabella nel file CSV
 writetable(data, 'dati.csv');
