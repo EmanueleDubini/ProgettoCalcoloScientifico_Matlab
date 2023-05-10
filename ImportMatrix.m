@@ -25,9 +25,13 @@ close all
 
 
 % Array contenente i nomi dei file delle matrici da caricare
-matrixNames = {'ex15.mat', 'cfd2.mat', 'cfd1.mat',  'shallow_water1'}; %'apache2.mat' aggiungere anche apache, ci mette tanto ad elaborare
+matrixNames = {'ex15.mat', 'cfd2.mat', 'cfd1.mat',  'shallow_water1.mat'}; %'apache2.mat' aggiungere anche apache, ci mette tanto ad elaborare
 %matrixOutOfMemory = {'Flan_1565.mat', 'Stocf-1465.mat', 'G3_circuit.mat', 'parabolic_fem.mat'};
 % Loop per caricare e analizzare le matrici una a una
+
+% Ottiene la lista di tutti i file nella cartella Matrici che hanno estensione .mat
+%matFiles = dir(fullfile('Matrici', '*.mat'));
+%matFileNames = {matFiles.name}; % ottiene solo i nomi dei file 
 
 array_time = zeros(1, length(matrixNames));
 array_error = zeros(1, length(matrixNames));
@@ -56,15 +60,23 @@ for i = 1:length(matrixNames)
     %disp(time)
     %disp(errore_relativo)
     %disp(memory_used_preResolution)
-    %disp(memory_used_postResolution)
+    %disp(memory_used_postResolution)   
 
+    
     array_time(i) = time;
     array_error(i) = errore_relativo;
     array_memoryPre(i) = memory_used_preResolution.MemUsedMATLAB;
     array_memoryPost(i) = memory_used_postResolution.MemUsedMATLAB;
     array_memoryDiff(i) = memory_used_postResolution.MemUsedMATLAB - memory_used_preResolution.MemUsedMATLAB;
     disp(memory_used_postResolution.MemUsedMATLAB);
-    array_matrixSize(i) = whos('matrix').bytes;
+      
+
+    % Ottieni la dimensione del file mat
+    file_info = dir(fullfile('Matrici/', matrixNames{i}));
+    file_size = file_info.bytes;
+    fprintf('Dimensione del file: %d bytes\n', file_size);
+
+    array_matrixSize(i) = file_size;  
 end
 
 

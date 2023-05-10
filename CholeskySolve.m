@@ -8,6 +8,9 @@ memory_used_preResolution = memory;
 % Dimensione della matrice
 n = size(matrix, 1);
 
+fprintf(strcat('\n-- Numeri di non zero:\n'))
+nnz(matrix)
+
 % Inizializza il termine noto b come un vettore come il prodotto tra A e un vettore di tutti 1
 b = matrix*ones(size(matrix,1),1); 
 %per il valore vero ci hanno suggerito di mettere \ ma non sembra funzionare
