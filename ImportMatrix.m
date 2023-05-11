@@ -81,7 +81,7 @@ end
 
 
 % Creazione delle tabelle con i dati
-data = table(matrixNames' , array_matrixSize', array_memoryPre', array_memoryPost', array_memoryDiff', array_time', array_error', 'VariableNames', {'MatrixName', 'Size', 'MemoryPre', 'MemoryPost', 'MemoryDiff', 'Time', 'Error'});
+data = table(matrixNames' , array_matrixSize', array_memoryDiff', array_time', array_error', 'VariableNames', {'MatrixName', 'Size', 'MemoryDiff', 'Time', 'Error'});
 
 % Scrive la tabella nel file CSV
 writetable(data, 'dati_matlab.csv');
