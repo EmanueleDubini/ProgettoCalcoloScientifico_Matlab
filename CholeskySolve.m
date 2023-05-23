@@ -80,7 +80,7 @@ function [memory_used] = get_memory_usage()
     else
         [~, result] = system('free -b | grep Mem');
         memory_info = strsplit(result);
-        memory_used = str2double(memory_info{2});
+        memory_used = str2double(memory_info{3});
     end
 end
 
