@@ -30,3 +30,26 @@ Le Matrici simmetriche e definite positive considerate fanno parte della SuiteSp
 | [cfd2.mat](https://sparse.tamu.edu/Rothberg/cfd2)   | :white_check_mark:    | 23,192 |
 | [StocF-1465.mat](https://sparse.tamu.edu/Janna/StocF-1465)   | Out of memory :x:    | 178,368 |
 | [Flan_1565.mat](https://sparse.tamu.edu/Janna/Flan_1565)   | Out of Memory :x:    | 292,858 |
+
+## Descrizione del programma
+All'interno del programma vengono sfruttate funzioni che sono implementate nativamente dall'ambiente Matlab e quindi non sono richieste librerie per completare i task richiesti dal progetto. 
+
+Le funzioni che sono rese disponibili nativamente da *Matlab* sono molto efficienti; MATLAB, di fatto, è noto per le sue prestazioni ottimizzate per il calcolo numerico e scientifico e le sue librerie sono state sviluppate e ottimizzate per offrire elevate prestazioni computazionali
+Per la realizzazione del programma in **Matlab** abbiamo utilizzato la funzione _chol_ con lo scopo di risolvere il sistema lineare *Ax=b* a seguito della decomposizione della matrice con il metodo di Cholesky. 
+Il metodo _chol_ è presente nella libreria Matlab, e la dcoumentazione è disponibile al sito https://www.mathworks.com/help/matlab/ref/chol.html 
+
+Il sito che contiene la documentazione Matlab permette di ottenere numerose informazioni riguardo alle funzioni che si vogliono utilizzare, oltre ad avere una sezione dedicata ad esempi di codice che implementano la particolare funzione che si vuole integrare nel proprio progetto. E' disponibile anche un forum con domande che possono essere scritte da utenti che riscontrano problemi durante l'implementazione delle funzioni. 
+
+MATLAB è un software ampiamente utilizzato nel campo del calcolo scientifico e numerico, ed è costantemente aggiornato e sviluppato da MathWorks, l'azienda che lo produce. Inoltre, la licenza Matlab include anche l'assistenza diretta con un consulente esperto in caso di problemi oltre che a *Matlab Answers*, un forum online di domande e risposte per Matlab molto simile a StackOverflow. 
+
+Prendere in considerazione tutti gli aspetti prima di decidere quale software utilizzare è fondamentale. Un software a pagamento come MATLAB offre alcuni vantaggi significativi: in primo luogo, viene fornita un'assistenza tecnica dedicata e professionale. Gli utenti possono contare su un supporto esperto per risolvere eventuali problemi o dubbi che potrebbero sorgere durante l'utilizzo del software. Questo può essere particolarmente utile quando si lavora su progetti critici o complessi.
+Inoltre, i software a pagamento, come MATLAB, solitamente hanno un'alta affidabilità e sicurezza. Sono sottoposti a rigidi controlli di qualità e passano attraverso processi di test e verifica approfonditi per garantire la stabilità e la robustezza delle funzionalità offerte. Questo può essere un fattore cruciale in applicazioni che richiedono precisione e risultati accurati.
+
+Tuttavia, è importante considerare anche i potenziali svantaggi: il costo di un software a pagamento come MATLAB, può essere significativo e potrebbe non essere sostenibile per tutte le aziende o organizzazioni, specialmente quelle con risorse finanziarie limitate. Pertanto, è necessario valutare attentamente il budget disponibile e confrontarlo con il costo del software prima di prendere una decisione.
+Inoltre, è importante considerare l'alternativa di utilizzare software open-source, come le librerie Python per la risoluzione di sistemi lineari e la decomposizione di Cholesky. Questi software sono spesso gratuiti e disponibili per un'ampia comunità di sviluppatori. Anche se potrebbero mancare alcune delle caratteristiche avanzate e del supporto personalizzato offerto dai software a pagamento, possono essere soluzioni valide ed economicamente vantaggiose per molte aziende.
+
+In conclusione, la scelta del software dipende da diversi fattori, tra cui l'affidabilità, la sicurezza, il supporto tecnico, il budget disponibile e le specifiche esigenze dell'azienda. È importante valutare attentamente tutte queste considerazioni prima di prendere una decisione informata.
+
+
+
+
