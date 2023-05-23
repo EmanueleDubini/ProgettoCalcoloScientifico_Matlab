@@ -1,8 +1,11 @@
 function [x, time, errore_relativo, memory_used_preResolution, memory_used_postResolution] = CholeskySolve(matrix)
    
 fprintf(strcat('\n-- Stato memoria pre risoluzione sistema:\n'))
-memory
-memory_used_preResolution = memory;
+% memory
+% memory_used_preResolution = memory;
+
+memory_used_preResolution = get_memory_usage();
+
 
 %---risoluzione sistema lineare---
 % Dimensione della matrice
@@ -36,8 +39,9 @@ fprintf('\n-- Tempo necessario per risolvere il sistema con Cholesky in secondi:
 
 % Misura l'utilizzo di memoria RAM
 fprintf(strcat('\n-- Stato memoria post risoluzione sistema:\n'))
-memory
-memory_used_postResolution = memory;
+% memory
+% memory_used_postResolution = memory;
+memory_used_postResolution = get_memory_usage();
 
 % Da usare per misurare l'utilizzo di memoria del processo matlab usando
 % Linux, capire come usarlo e mettere una condizione per capire che sistema
@@ -58,7 +62,7 @@ figure;
 semilogy(n, time, '-o', 'DisplayName', 'Tempo'); % Tempo sulla scala delle ordinate con simboli a forma di cerchio
 hold on;
 semilogy(n, errore_relativo, '-x', 'DisplayName', 'Errore Relativo'); % Errore relativo sulla scala delle ordinate con simboli a forma di x
-semilogy(n, memory_used_postResolution.MemUsedMATLAB, '-s', 'DisplayName', 'Memoria Utilizzata'); % Memoria utilizzata sulla scala delle ordinate con simboli a forma di quadrato
+% semilogy(n, memory_used_postResolution.MemUsedMATLAB, '-s', 'DisplayName', 'Memoria Utilizzata'); % Memoria utilizzata sulla scala delle ordinate con simboli a forma di quadrato
 xlabel('Dimensione della Matrice'); % Etichetta dell'asse delle ascisse
 ylabel('Valore'); % Etichetta dell'asse delle ordinate
 title('Grafico Tempo, Errore Relativo, e Memoria Utilizzata'); % Titolo del grafico
@@ -68,26 +72,16 @@ hold off;
 
 end
 
-
-
-
-
-
-
-    
-    
-  
-
-    
-    
-    
-    
-    
-      
-
-
-
-
+function [memory_used] = get_memory_usage()
+    if ispc() % Se il sistema operativo è Windows
+        m = memory();
+        memory_used = m.MemUsedMATLAB;
+    else
+        pid = system('pgrep -f matlab');
+        % Get the memory usage of the MATLAB process.
+        memory_used = system(['cat /proc/' num2str(pid) '/status | grep VmSize']);
+    end
+end
 
 % Capire se serve verifica se la matrice è simmetrica e poi continua
 %if isequal(matrix, matrix')

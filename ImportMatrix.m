@@ -65,10 +65,14 @@ for i = 1:length(matrixNames)
     
     array_time(i) = time;
     array_error(i) = errore_relativo;
-    array_memoryPre(i) = memory_used_preResolution.MemUsedMATLAB;
-    array_memoryPost(i) = memory_used_postResolution.MemUsedMATLAB;
-    array_memoryDiff(i) = memory_used_postResolution.MemUsedMATLAB - memory_used_preResolution.MemUsedMATLAB;
-    disp(memory_used_postResolution.MemUsedMATLAB);
+    array_memoryPre(i) = memory_used_preResolution;
+    array_memoryPost(i) = memory_used_postResolution;
+    array_memoryDiff(i) = memory_used_postResolution - memory_used_preResolution;
+    disp(memory_used_postResolution);
+    % array_memoryPre(i) = memory_used_preResolution.MemUsedMATLAB;
+    % array_memoryPost(i) = memory_used_postResolution.MemUsedMATLAB;
+    % array_memoryDiff(i) = memory_used_postResolution.MemUsedMATLAB - memory_used_preResolution.MemUsedMATLAB;
+    % disp(memory_used_postResolution.MemUsedMATLAB);
       
 
     % Ottieni la dimensione del file mat
@@ -80,14 +84,30 @@ for i = 1:length(matrixNames)
 end
 
 
+if isunix()
+  filename = 'dati_matlab_linux.csv';
+else
+  filename = 'dati_matlab_windows.csv';
+end
+
 % Creazione delle tabelle con i dati
 data = table(matrixNames' , array_matrixSize', array_memoryDiff', array_time', array_error', 'VariableNames', {'MatrixName', 'Size', 'MemoryDiff', 'Time', 'Error'});
 
 % Scrive la tabella nel file CSV
-writetable(data, 'dati_matlab.csv');
+writetable(data, filename);
 
 fprintf('\n\n');
 fprintf('%.6f', array_time)
+
+
+% Creazione delle tabelle con i dati
+% data = table(matrixNames' , array_matrixSize', array_memoryDiff', array_time', array_error', 'VariableNames', {'MatrixName', 'Size', 'MemoryDiff', 'Time', 'Error'});
+
+% Scrive la tabella nel file CSV
+% writetable(data, 'dati_matlab.csv');
+
+% fprintf('\n\n');
+% fprintf('%.6f', array_time)
 
 % Genera il grafico
 %figure
