@@ -78,9 +78,9 @@ function [memory_used] = get_memory_usage()
         m = memory();
         memory_used = m.MemUsedMATLAB;
     else
-        pid = system('pgrep -f matlab');
-        % Get the memory usage of the MATLAB process.
-        memory_used = system(['cat /proc/' num2str(pid) '/status | grep VmSize']);
+        [~, result] = system('free -b | grep Mem');
+        memory_info = strsplit(result);
+        memory_used = str2double(memory_info{2});
     end
 end
 
