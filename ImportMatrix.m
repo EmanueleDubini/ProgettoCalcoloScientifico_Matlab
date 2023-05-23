@@ -108,7 +108,7 @@ fprintf('%.6f', array_time)
 
 % fprintf('\n\n');
 % fprintf('%.6f', array_time)
-
+%
 % Genera il grafico
 %figure
 %loglog(array_time, 'o-', 'LineWidth', 2, 'MarkerSize', 8)

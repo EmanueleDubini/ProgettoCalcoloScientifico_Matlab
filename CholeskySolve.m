@@ -41,6 +41,7 @@ fprintf('\n-- Tempo necessario per risolvere il sistema con Cholesky in secondi:
 fprintf(strcat('\n-- Stato memoria post risoluzione sistema:\n'))
 % memory
 % memory_used_postResolution = memory;
+% Serve per controllare mem su linux 
 memory_used_postResolution = get_memory_usage();
 
 % Da usare per misurare l'utilizzo di memoria del processo matlab usando
