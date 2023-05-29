@@ -23,9 +23,9 @@ Le Matrici simmetriche e definite positive considerate fanno parte della SuiteSp
 |-----------|-----------|-----------|
 | [ex15.mat](https://sparse.tamu.edu/FIDAP/ex15)  | :white_check_mark:   |  0,555 |
 | [shallow_water1.mat](https://sparse.tamu.edu/MaxPlanck/shallow_water1)    | :white_check_mark:   | 2,263 |
-| [apache2.mat](https://sparse.tamu.edu/GHS_psdef/apache2)   |:white_check_mark:    | 8,302 |
-| [parabolic_fem.mat](https://sparse.tamu.edu/Wissgott/parabolic_fem)  | :white_check_mark:    | 13,116 |
-| [G3_circuit.mat](https://sparse.tamu.edu/AMD/G3_circuit)   | :white_check_mark:    | 13,833 |
+| [apache2.mat](https://sparse.tamu.edu/GHS_psdef/apache2)   | Out of memory :x:    | 8,302 |
+| [parabolic_fem.mat](https://sparse.tamu.edu/Wissgott/parabolic_fem)  | Out of memory :x:    | 13,116 |
+| [G3_circuit.mat](https://sparse.tamu.edu/AMD/G3_circuit)   | Out of memory :x:    | 13,833 |
 | [cfd1.mat](https://sparse.tamu.edu/Rothberg/cfd1)   | :white_check_mark:    | 14,164 |
 | [cfd2.mat](https://sparse.tamu.edu/Rothberg/cfd2)   | :white_check_mark:    | 23,192 |
 | [StocF-1465.mat](https://sparse.tamu.edu/Janna/StocF-1465)   | Out of memory :x:    | 178,368 |
