@@ -1,10 +1,11 @@
 function [x, time, errore_relativo, memory_used_preResolution, memory_used_postResolution] = CholeskySolve(matrix)
    
-fprintf(strcat('\n-- Stato memoria pre risoluzione sistema:\n'))
+
 % memory
 % memory_used_preResolution = memory;
 
 memory_used_preResolution = get_memory_usage();
+fprintf('\n-- Stato memoria pre risoluzione sistema: %d byte\n', memory_used_preResolution)
 
 
 %---risoluzione sistema lineare---
@@ -33,16 +34,15 @@ fprintf('\n-- Tempo necessario per risolvere il sistema con Cholesky in secondi:
 %  lo stesso tempo in secondi
 
 % Misura l'utilizzo di memoria RAM
-fprintf(strcat('\n-- Stato memoria post risoluzione sistema:\n'))
-
 % Serve per controllare mem su linux 
 memory_used_postResolution = get_memory_usage();
+fprintf('\n-- Stato memoria post risoluzione sistema: %d byte\n', memory_used_postResolution)
 
 % Calcola l'errore relativo tra x e xe utilizzando la norma euclidea
 xe = ones(n, 1); % Assumiamo xe come un vettore di tutti 1 per semplicità nell'esempio
 norm_xe = norm(xe, 2); % Calcola la norma euclidea di xe
 errore_relativo = norm(x - xe, 2) / norm_xe; % Calcola l'errore relativo
-fprintf('\n-- Errore relativo tra x e xe:%s ', num2str(errore_relativo));
+fprintf('\n-- Errore relativo tra x e xe:%s\n ', num2str(errore_relativo));
 
 end
 

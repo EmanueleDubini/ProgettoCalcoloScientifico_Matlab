@@ -6,8 +6,8 @@ close all
 %MATRICI SOLO QUELLE CHE NONO VANNO IN OUT OF MEMORY
 
 % Array contenente i nomi dei file delle matrici da caricare
-matrixNames = {'ex15.mat', 'cfd2.mat', 'cfd1.mat',  'shallow_water1.mat'}; % 'apache2.mat'  aggiungere anche apache, ci mette tanto ad elaborare
-%matrixOutOfMemory = {'Flan_1565.mat', 'Stocf-1465.mat', 'G3_circuit.mat', 'parabolic_fem.mat'};
+matrixNames = {'ex15.mat', 'cfd2.mat', 'cfd1.mat',  'shallow_water1.mat'};
+%matrixOutOfMemory = {'apache2.mat', 'Flan_1565.mat', 'Stocf-1465.mat', 'G3_circuit.mat', 'parabolic_fem.mat'};
 % Loop per caricare e analizzare le matrici una a una
 
 array_time = zeros(1, length(matrixNames));
@@ -26,8 +26,7 @@ for i = 1:length(matrixNames)
     clear tmp
     
     % Stampa il nome del file e le dimensioni della matrice
-    fprintf('----------------------------\n');
-    fprintf('%s\n', matrixNames{i});
+    fprintf('\n---------------------------- %s ----------------------------\n\n', matrixNames{i})
     whos matrix
 
     %funzione risoluzione sistema lineare
@@ -42,11 +41,12 @@ for i = 1:length(matrixNames)
     % Ottieni la dimensione del file mat
     file_info = dir(fullfile('Matrici/', matrixNames{i}));
     file_size = file_info.bytes;
-    fprintf('Dimensione del file: %d bytes\n', file_size);
+   
 
     array_matrixSize(i) = file_size;  
 end
 
+fprintf('\n---------------------------- Risoluzione completata ----------------------------\n\n')
 
 if isunix() % Controlla se il programma viene usato su linux
   filename = 'dati_matlab_linux.csv';
@@ -60,6 +60,7 @@ data = table(matrixNames' , array_matrixSize', array_memoryDiff', array_time', a
 % Scrive la tabella nel file CSV
 writetable(data, filename);
 
+fprintf('scrittura file csv completata')
 fprintf('\n\n');
 % fprintf('%.6f', array_time)
 
