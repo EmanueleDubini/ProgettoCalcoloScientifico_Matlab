@@ -6,7 +6,7 @@ close all
 %MATRICI SOLO QUELLE CHE NONO VANNO IN OUT OF MEMORY
 
 % Array contenente i nomi dei file delle matrici da caricare
-matrixNames = {'ex15.mat', 'cfd2.mat', 'cfd1.mat',  'shallow_water1.mat'};
+matrixNames = {'ex15.mat', 'shallow_water1.mat', 'cfd1.mat','cfd2.mat'};
 %matrixOutOfMemory = {'apache2.mat', 'Flan_1565.mat', 'Stocf-1465.mat', 'G3_circuit.mat', 'parabolic_fem.mat'};
 % Loop per caricare e analizzare le matrici una a una
 
