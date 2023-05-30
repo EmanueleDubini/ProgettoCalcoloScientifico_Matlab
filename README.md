@@ -1,6 +1,6 @@
 # Progetto Metodi del Calcolo Scientifico - Matlab
 
->  Progetto MATLAB per la risoluzione con il metodo di Choleski di sistemi lineari con matrici sparse e definite positive di grandi dimensioni
+>  Progetto MATLAB per la risoluzione con il metodo di Cholesky di sistemi lineari con matrici sparse e definite positive di grandi dimensioni
 
 ## Introduzione
 
