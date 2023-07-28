@@ -21,10 +21,10 @@ tic
 R = chol(matrix, 'lower'); %A = R' R con R triangolare sup.
 %If S is a symmetric (or Hermitian), positive definite, sparse matrix, the statement R = chol(S) returns a sparse, upper triangular matrix R so that R'*R = S.
 
-% Risolvi il sistema Ly = b utilizzando \
+% Risolvi il sistema Ry = b utilizzando \
 y = R\b; %fare sostituzione in indietro perchè R' è tringolare superiore 
 
-% Risolvi il sistema L'x = y utilizzando \
+% Risolvi il sistema R'x = y utilizzando \
 x = R'\y; %fare sostituzione in avanti perchè R' è tringolare inferiore 
 
 time = toc;
@@ -40,7 +40,7 @@ fprintf('\n-- Stato memoria post risoluzione sistema: %d byte\n', memory_used_po
 
 % Calcola l'errore relativo tra x e xe utilizzando la norma euclidea
 xe = ones(n, 1); % Assumiamo xe come un vettore di tutti 1 per semplicità nell'esempio
-norm_xe = norm(xe, 2); % Calcola la norma euclidea di xe
+norm_xe = norm(xe, 2); % Calcola la norma euclidea di xe (vettore soluzioni esatte)
 errore_relativo = norm(x - xe, 2) / norm_xe; % Calcola l'errore relativo
 fprintf('\n-- Errore relativo tra x e xe:%s\n ', num2str(errore_relativo));
 
