@@ -9,7 +9,7 @@ fprintf('\n-- Stato memoria pre risoluzione sistema: %d byte\n', memory_used_pre
 
 
 %---risoluzione sistema lineare---
-% Dimensione della matrice
+% Numero di righe della matrice
 n = size(matrix, 1);
 
 % Inizializza il termine noto b come un vettore dato dal prodotto tra A e un vettore di tutti 1
@@ -17,14 +17,28 @@ b = matrix*ones(size(matrix,1),1);
 
 tic
 % Calcola la matrice triangolare inferiore R di A utilizzando il metodo di Cholesky
-R = chol(matrix, 'lower'); %A = R' R con R triangolare sup.
+%R = chol(matrix, 'lower'); %A = R' R con R triangolare sup. ( NB non vero con
+%opzione lower)
 %If S is a symmetric (or Hermitian), positive definite, sparse matrix, the statement R = chol(S) returns a sparse, upper triangular matrix R so that R'*R = S.
 
 % Risolvi il sistema Ry = b utilizzando \
-y = R\b; %fare sostituzione in indietro perchè R' è tringolare superiore 
+%y = R\b; %fare sostituzione in indietro perchè R è tringolare superiore 
 
 % Risolvi il sistema R'x = y utilizzando \
-x = R'\y; %fare sostituzione in avanti perchè R' è tringolare inferiore 
+%x = R'\y; %fare sostituzione in avanti perchè R' è tringolare inferiore 
+
+
+
+% Calcola la matrice triangolare inferiore R di A utilizzando il metodo di Cholesky
+R = chol(matrix); %A = R' R con R triangolare sup.
+%If S is a symmetric (or Hermitian), positive definite, sparse matrix, the statement R = chol(S) returns a sparse, upper triangular matrix R so that R'*R = S.
+
+% Risolvi il sistema Ry = b utilizzando \
+y = R'\b; %fare sostituzione in indietro perchè R' è tringolare inferiore  
+
+% Risolvi il sistema R'x = y utilizzando \
+x = R\y; %fare sostituzione in avanti perchè R è tringolare superiore 
+
 
 time = toc;
 
