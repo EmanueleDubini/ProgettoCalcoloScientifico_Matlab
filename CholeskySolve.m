@@ -12,9 +12,8 @@ fprintf('\n-- Stato memoria pre risoluzione sistema: %d byte\n', memory_used_pre
 % Dimensione della matrice
 n = size(matrix, 1);
 
-% Inizializza il termine noto b come un vettore come il prodotto tra A e un vettore di tutti 1
+% Inizializza il termine noto b come un vettore dato dal prodotto tra A e un vettore di tutti 1
 b = matrix*ones(size(matrix,1),1); 
-%per il valore vero ci hanno suggerito di mettere \ ma non sembra funzionare
 
 tic
 % Calcola la matrice triangolare inferiore R di A utilizzando il metodo di Cholesky
@@ -29,9 +28,9 @@ x = R'\y; %fare sostituzione in avanti perchè R' è tringolare inferiore
 
 time = toc;
 
-
+% Stampa del tempo in secondi
 fprintf('\n-- Tempo necessario per risolvere il sistema con Cholesky in secondi: %s \n ', num2str(time));
-%  lo stesso tempo in secondi
+
 
 % Misura l'utilizzo di memoria RAM
 % Serve per controllare mem su linux 
