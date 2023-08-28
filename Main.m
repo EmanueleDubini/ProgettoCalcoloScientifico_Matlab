@@ -8,7 +8,7 @@ close all
 % Array contenente i nomi dei file delle matrici da caricare
 matrixNames = {'ex15.mat', 'shallow_water1.mat', 'cfd1.mat','cfd2.mat'};
 %matrixOutOfMemory = {'apache2.mat', 'Flan_1565.mat', 'Stocf-1465.mat', 'G3_circuit.mat', 'parabolic_fem.mat'};
-% Loop per caricare e analizzare le matrici una a una
+
 
 array_time = zeros(1, length(matrixNames));
 array_error = zeros(1, length(matrixNames));
@@ -17,10 +17,10 @@ array_memoryPost = zeros(1, length(matrixNames));
 array_memoryDiff = zeros(1, length(matrixNames));
 array_matrixSize = zeros(1, length(matrixNames));
 
+% Loop per caricare e analizzare le matrici una a una
 for i = 1:length(matrixNames)
 
     % Carica la matrice dal file
-    %tmp = load(matrixNames{i});
     tmp = load(['Matrici/', matrixNames{i}]);
     matrix = tmp.Problem.A;
     clear tmp
@@ -48,7 +48,8 @@ end
 
 fprintf('\n---------------------------- Risoluzione completata ----------------------------\n\n')
 
-if isunix() % Controlla se il programma viene usato su linux
+% Controlla se il programma viene usato su linux
+if isunix() 
   filename = 'dati_matlab_linux.csv';
 else
   filename = 'dati_matlab_windows.csv';
@@ -62,5 +63,3 @@ writetable(data, filename);
 
 fprintf('scrittura file csv completata')
 fprintf('\n\n');
-% fprintf('%.6f', array_time)
-
