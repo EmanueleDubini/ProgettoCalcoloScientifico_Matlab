@@ -2,8 +2,6 @@ clc
 clear variables
 close all
 
-%DA AGGIUNGERE UNA VOLTA PROVATE TUTTE LE MATRICI E LASCIATO NELLA CARTELLA
-%MATRICI SOLO QUELLE CHE NONO VANNO IN OUT OF MEMORY
 
 % Array contenente i nomi dei file delle matrici da caricare
 matrixNames = {'ex15.mat', 'shallow_water1.mat', 'cfd1.mat','cfd2.mat'};
